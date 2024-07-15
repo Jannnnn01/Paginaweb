@@ -1,1 +1,436 @@
-aaaa
+Se encuentra el archivo comprimido en el archivo "Pagina Web.rar"
+Codigo del index.html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos de Inglés Online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: rgb(255, 128, 192);
+            color: #333;
+        }
+        header {
+            background-color: rgb(0, 255, 255);
+            color: rgb(0, 0, 0);
+            padding: 1rem;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        header button {
+            background-color: white;
+            color: #4CAF50;
+            border: 2px solid #4CAF50;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        header button:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .main-banner {
+            background: url('https://www.unotv.com/uploads/2023/02/como-aprender-ingles-si-migre-a-estados-unidos-eu-161321.jpg') no-repeat center center;
+            background-size: cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 4px #000;
+            margin-top: 4rem;
+        }
+        .main-banner h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        .main-banner p {
+            font-size: 1.5rem;
+        }
+        .container {
+            padding: 2rem;
+        }
+        .course-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 2rem;
+        }
+        .course-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            width: 30%;
+            min-width: 280px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .course-card:hover {
+            transform: translateY(-10px);
+        }
+        .course-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .course-card h3 {
+            margin: 1rem 0;
+            font-size: 1.5rem;
+            color: #4CAF50;
+        }
+        .course-card p {
+            padding: 0 1rem 1rem;
+            font-size: 1rem;
+            color: #666;
+        }
+        .course-card .course-author,
+        .course-card .course-price {
+            font-size: 1rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .login-modal-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .login-modal-content input {
+            padding: 0.5rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .login-modal-content button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Cursos de Inglés Online</h1>
+    <button onclick="showLoginModal()">Inicio de Sesión</button>
+</header>
+
+<div class="main-banner">
+    <div>
+        <h1>Mejora tu Inglés con Nuestros Cursos</h1>
+        <p>Aprende inglés de manera efectiva con nuestros cursos en línea, ahora en promoción!</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="course-list">
+        <div class="course-card" onclick="showModal('Inglés Básico', 'Curso para principiantes que cubre los fundamentos del inglés, incluyendo gramática básica, vocabulario y frases cotidianas.', 'John Doe', 'GRATIS SOLO POR HOY')">
+            <img src="https://blog.facialix.com/wp-content/uploads/2024/01/ingles-basico-curso-gratis.jpg" alt="Inglés Básico">
+            <h3>Inglés Básico</h3>
+            <p>Fundamentos del inglés para principiante, actualmente está gratis</p>
+            <div class="course-author">John Doe</div>
+            <div class="course-price">GRATIS SOLO POR HOY</div>
+        </div>
+        <div class="course-card" onclick="showModal('Inglés Intermedio', 'Mejora tus habilidades en inglés con un enfoque en la conversación, comprensión auditiva y escritura.', 'Jane Smith', '$120')">
+            <img src="https://d8285fmxt3duy.cloudfront.net/teleusers/vid_presentacion_cursos/courseImage_INGIN_1488371599_.png" alt="Inglés Intermedio">
+            <h3>Inglés Intermedio</h3>
+            <p>Mejora tu conversación, comprensión y escritura en inglés.</p>
+            <div class="course-author">Jane Smith</div>
+            <div class="course-price">$120</div>
+        </div>
+        <div class="course-card" onclick="showModal('Inglés Avanzado', 'Curso avanzado para perfeccionar tus habilidades en inglés, ideal para contextos profesionales y académicos.', 'Richard Roe', '$400')">
+            <img src="https://livexp.com/es/blog/content/images/2023/09/---------------------_ES.jpg" alt="Inglés Avanzado">
+            <h3>Inglés Avanzado</h3>
+            <p>Perfecciona tu inglés para contextos profesionales y académicos.</p>
+            <div class="course-author">Richard Roe</div>
+            <div class="course-price">$400</div>
+        </div>
+        <div class="course-card" onclick="showModal('Preparación para Exámenes de Inglés', 'Prepárate para exámenes oficiales de inglés como TOEFL, IELTS, y más.', 'Emily Davis', '$600')">
+            <img src="https://www.britishcouncil.org.mx/sites/default/files/test_de_ingles_1.png" alt="Preparación para Exámenes de Inglés">
+            <h3>Preparación para Exámenes de Inglés</h3>
+            <p>Prepárate para TOEFL, IELTS y otros exámenes oficiales.</p>
+            <div class="course-author">Emily Davis</div>
+            <div class="course-price">$600</div>
+        </div>
+        <div class="course-card" onclick="showModal('Inglés para Negocios', 'Curso especializado en inglés para contextos empresariales y negocios internacionales.', 'Michael Brown', '$850')">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGEUxt2JxyoKqx9ZdLyHQ_Jvkahlu04OBbaA&s" alt="Inglés para Negocios">
+            <h3>Inglés para Negocios</h3>
+            <p>Inglés especializado para contextos empresariales.</p>
+            <div class="course-author">Michael Brown</div>
+            <div class="course-price">$850</div>
+        </div>
+    </div>
+</div>
+
+<!-- Course Info Modal -->
+<div id="courseModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <p id="modalDescription"></p>
+        <p id="modalAuthor"></p>
+        <p id="modalPrice"></p>
+    </div>
+</div>
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeLoginModal()">&times;</span>
+        <div class="login-modal-content">
+            <h2>Inicio de Sesión</h2>
+            <input type="text" id="username" placeholder="Nombre de usuario">
+            <input type="password" id="password" placeholder="Contraseña">
+            <button onclick="login()">Iniciar Sesión</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2024 Cursos de Inglés Online. Todos los derechos reservados.
+</footer>
+
+<script>
+    function showModal(title, description, author, price) {
+        document.getElementById('modalTitle').innerText = title;
+        document.getElementById('modalDescription').innerText = description;
+        document.getElementById('modalAuthor').innerText = 'Autor: ' + author;
+        document.getElementById('modalPrice').innerText = 'Precio: ' + price;
+        document.getElementById('courseModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('courseModal').style.display = 'none';
+    }
+
+    function showLoginModal() {
+        document.getElementById('loginModal').style.display = 'flex';
+    }
+
+    function closeLoginModal() {
+        document.getElementById('loginModal').style.display = 'none';
+    }
+
+    function login() {
+        // Aquí puedes agregar la lógica de inicio de sesión
+        alert('Inicio de sesión exitoso!');
+        closeLoginModal();
+    }
+    
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('courseModal')) {
+            closeModal();
+        }
+        if (event.target == document.getElementById('loginModal')) {
+            closeLoginModal();
+        }
+    }
+</script>
+
+</body>
+</html>
+
+Codigo del producto.html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Curso - CURSO DE INGLÉS INTENSIVO</title>
+    <link href="https://www.uniminuto.edu/sites/default/files/2022-08/test_ingles_nt.jpg" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: rgb(255, 128, 192);
+            color: rgb(0, 0, 0);
+            padding: 1rem;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        .main-banner {
+            background: url('https://www.uniminuto.edu/sites/default/files/2022-08/test_ingles_nt.jpg') no-repeat center center;
+            background-size: cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 4px #000;
+            margin-top: 4rem;
+        }
+        .main-banner h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        .container {
+            padding: 2rem;
+        }
+        .course-details {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .course-details h2 {
+            color: #4CAF50;
+        }
+        .course-details p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+        .course-details .course-author,
+        .course-details .course-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        .enroll-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            margin: 2rem 0;
+        }
+        .enroll-button:hover {
+            background-color: #45a049;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Cursos de Inglés Online</h1>
+    <a href="index.html">Inicio</a>
+</header>
+
+<div class="main-banner">
+    <div>
+        <h1>CURSO DE INGLES INTENSIVO</h1>
+    </div>
+</div>
+
+<div class="container">
+    <div class="course-details">
+        <h2>Inglés Básico</h2>
+        <p>El curso de Inglés Básico está diseñado para principiantes y cubre los fundamentos del idioma, incluyendo gramática básica, vocabulario y frases cotidianas. Este curso es ideal para aquellos que desean comenzar su aprendizaje del inglés de manera estructurada y efectiva.</p>
+        <p>El curso incluye:</p>
+        <ul>
+            <li>Lecciones de gramática básica</li>
+            <li>Ejercicios de vocabulario</li>
+            <li>Prácticas de conversación</li>
+            <li>Actividades de comprensión auditiva</li>
+            <li>Evaluaciones y retroalimentación continua</li>
+        </ul>
+        <div class="course-author">Instructor: John Doe</div>
+        <div class="course-price">Precio: GRATIS SOLO POR HOY</div>
+        <a href="inscripcion.html" class="enroll-button">Inscribirse Ahora</a>
+    </div>
+</div>
+
+<footer>
+    &copy; 2024 Cursos de Inglés Online. Todos los derechos reservados.
+</footer>
+
+</body>
+</html>
+
+
